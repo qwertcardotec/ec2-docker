@@ -7,7 +7,11 @@ services:
     container_name: ui
     environment:
       KAFKA_CLUSTERS_0_NAME: msk
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: PLAINTEXT://b-1.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: b-3.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:9098,b-1.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:9098,b-2.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:9098
       KAFKA_CLUSTERS_0_ZOOKEEPER: z-3.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:2181,z-2.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:2181,z-1.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:2181
+      KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: SASL_SSL
+      KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM: AWS_MSK_IAM
+      KAFKA_CLUSTERS_0_PROPERTIES_SASL_CLIENT_CALLBACK_HANDLER_CLASS: software.amazon.msk.auth.iam.IAMClientCallbackHandler
+      KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG: software.amazon.msk.auth.iam.IAMLoginModule required awsProfileName="ec2-fullAccess-to-msk"
     ports:
       - "8080:8080"

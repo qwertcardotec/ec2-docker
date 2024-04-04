@@ -5,6 +5,11 @@ services:
   ui:
     image: provectuslabs/kafka-ui
     container_name: ui
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 200M
     environment:
       KAFKA_CLUSTERS_0_NAME: msk
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: b-3.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:9098,b-1.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:9098,b-2.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:9098

@@ -1,0 +1,21 @@
+---
+version: '2'
+services:
+
+  connect:
+    image: debezium/connect
+    container_name: connect
+    environment:
+      BOOTSTRAP_SERVERS: b-3.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:9098,b-1.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:9098,b-2.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:9098
+      GROUP_ID: 1
+      CONFIG_STORAGE_TOPIC: connect_configs
+      OFFSET_STORAGE_TOPIC: connect_offsets
+      KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      ADVERTISED_HOST_NAME: connect
+      ADVERTISED_PORT: 8083
+      CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/kafka-connectors"
+    volumes: 
+      - C:\Users\9001002\Desktop\kafka\connect-plugins:/usr/share/kafka-connectors
+    ports:
+      - "8083:8083"

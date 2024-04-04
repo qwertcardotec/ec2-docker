@@ -16,6 +16,6 @@ services:
       ADVERTISED_PORT: 8083
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/kafka-connectors"
     volumes: 
-      - C:\Users\9001002\Desktop\kafka\connect-plugins:/usr/share/kafka-connectors
+      - /home/ec2-user/ec2-docker/kafka-connect/connect-plugins:/usr/share/kafka-connectors
     ports:
       - "8083:8083"

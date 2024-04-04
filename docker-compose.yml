@@ -7,7 +7,7 @@ services:
     container_name: ui
     environment:
       KAFKA_CLUSTERS_0_NAME: msk
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: b-1.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com,PLAINTEXT:b-2.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com,PLAINTEXT:b-3.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: PLAINTEXT://b-1.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com
       KAFKA_CLUSTERS_0_ZOOKEEPER: z-3.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:2181,z-2.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:2181,z-1.devcluster.wh2rfb.c13.kafka.us-east-1.amazonaws.com:2181
     ports:
       - "8080:8080"

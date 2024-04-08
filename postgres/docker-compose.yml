@@ -14,4 +14,4 @@ services:
       - "-c"
       - "wal_level=logical"
 volumes:
-  postgres_data:
+  postgres_data:
